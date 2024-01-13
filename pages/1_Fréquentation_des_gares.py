@@ -154,7 +154,7 @@ def main():
             labels={'Segmentation DRG Nouveau': 'Segmentation DRG', 'Taux de Croissance': 'Taux de Croissance (%)'},
             color_discrete_sequence=['#2E8B57'],
         )
-        fig.update_layout(xaxis_title='Segmentation DRG', yaxis_title='Taux de Croissance (%)')
+        fig.update_layout(xaxis_title='Segmentation DRG', yaxis_title='Taux de Croissance')
 
         st.plotly_chart(fig)
 
