@@ -35,8 +35,6 @@ def main():
 
         map = folium.Map(location=center, zoom_start=6, control_scale=True)
 
-        categ = st.radio('Taux de Répartition',('Tous','Faible','Moyen','Elevée'))
-
         moyen = st.selectbox('Moyen de transport',['Voiture / Moto','Bus / Car / Navette','Métro / RER / Tramway','Vélo','Marche'])
         data1=df
         if moyen == 'Voiture / Moto':
@@ -53,6 +51,8 @@ def main():
             data1 = data1[data1['Gpe intermodalités usagers'] == 'Marche']
         else:
             data1=df
+
+        categ = st.radio('Taux de Répartition',('Tous','Faible','Moyen','Elevée'))
 
         col1, col2 = st.columns(2)
 
