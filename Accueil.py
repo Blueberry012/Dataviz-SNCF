@@ -7,7 +7,9 @@ st.title('Application SNCF')
 
 st.image("image/sncf.png", width=100, use_column_width=False, clamp=True)
 
-st.header("Bienvenue")
+st.header("Comment inciter les utilisateurs à favoriser les moyens de transport ?")
+
+st.subheader("Bienvenue")
 
 st.write("Notre application dédiée à la SNCF simplifie la prise de décision en fournissant des données précises sur les gares les plus fréquentées, facilitant ainsi une gestion efficace des flux de passagers.")
 
