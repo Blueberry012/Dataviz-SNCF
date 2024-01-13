@@ -36,9 +36,6 @@ def main():
         data1=df
         data1['Total Voyageurs'] = data1[f'Total Voyageurs {annee}']
 
-        categ = st.radio('Nombre de Voyageurs',('Tous','Peu','Moyen','Beaucoup'))
-        purpose_colour = {'0':'lightblue', '1':'blue', '2':'darkblue'}
-
         segmentation = st.selectbox('Type de gare',['Tous types de gares','Gares de voyageurs d’intérêt national','Gares de voyageurs d’intérêt régional','Gares de voyageurs d’intérêt local'])
         data2=data1
         if segmentation == 'Gares de voyageurs d’intérêt national':
@@ -49,6 +46,9 @@ def main():
             data2 = data2[data2['Segmentation DRG'] == 'C']
         else:
             data2=data1
+
+        categ = st.radio('Nombre de Voyageurs',('Tous','Peu','Moyen','Beaucoup'))
+        purpose_colour = {'0':'lightblue', '1':'blue', '2':'darkblue'}
 
         col1, col2 = st.columns(2)
 
