@@ -1,6 +1,4 @@
 import streamlit as st
-import pandas as pd
-import numpy as np
 
 CURRENT_THEME = "blue"
 IS_DARK_THEME = True
