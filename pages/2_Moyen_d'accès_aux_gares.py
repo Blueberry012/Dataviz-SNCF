@@ -78,7 +78,7 @@ def main():
         col2.metric("Taux de Répartition Globale", formatted_value)
 
         for i,row in data3.iterrows():
-            content = f'Département: {str(row["DEPARTEMEN"])}<br>' f'Gare: {str(row["Gare enquêtée"])}<br>' f'Répartition: {str(row["Répartition"])}'
+            content = f'Département: {str(row["DEPARTEMEN"])}<br>' f'Gare: {str(row["Gare enquêtée"])}<br>' f'Répartition: {str(row["Répartition"])}'f'%'
             iframe = folium.IFrame(content, width=400, height=100)
             popup = folium.Popup(iframe, min_width=400, max_width=400)
             
