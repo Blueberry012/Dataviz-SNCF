@@ -32,7 +32,7 @@ def afficher_repartition_utilisation():
     st.write(data)
 
 def afficher_repartition_distances():
-    st.header("Répartition des distances d'accàs à la gare")
+    st.header("Répartition des distances d'accès à la gare")
     data = pd.read_csv('data/repartition-des-distances-dacces.csv',sep=';')
     st.write(data)
 
