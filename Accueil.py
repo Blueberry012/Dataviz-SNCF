@@ -17,7 +17,7 @@ st.write("Grâce à une analyse approfondie du flux ferroviaire, notre applicati
 
 st.write("Nous allons répondre à ses questions :")
 
-st.write("1) Quelles sont les gares les plus fréquentés ?")
+st.write("1) Quelles sont les gares les plus fréquentées ?")
 
 st.write("2) Quelles aménagements faudrait-il faire dans les gares ?")
 
