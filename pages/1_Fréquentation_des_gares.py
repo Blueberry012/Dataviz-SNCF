@@ -8,7 +8,7 @@ import plotly.express as px
 def main():
     menu_options = ["Carte", "Graphiques"]
     choix_menu = st.sidebar.selectbox("Fréquentation des gares :", menu_options)
-    st.title("Quelles sont les gares les plus fréquentés ?")
+    st.title("Quelles sont les gares les plus fréquentées ?")
 
     if choix_menu == "Carte":
         df1 = pd.read_csv("data/liste-des-gares.csv", sep=';')
