@@ -42,10 +42,9 @@ def main():
             data2 = data2[data2['Segmentation DRG'] == 'A']
         elif segmentation == 'Gares de voyageurs d’intérêt régional':
             data2 = data2[data2['Segmentation DRG'] == 'B']
-        elif segmentation == 'Gares de voyageurs d’intérêt local':
-            data2 = data2[data2['Segmentation DRG'] == 'C']
         else:
-            data2=data1
+            data2 = data2[data2['Segmentation DRG'] == 'C']
+        
 
         categ = st.radio('Nombre de Voyageurs',('Tous','Peu','Moyen','Beaucoup'))
         purpose_colour = {'0':'lightblue', '1':'blue', '2':'darkblue'}
@@ -138,10 +137,9 @@ def main():
                 return 'Gares d\'intérêt national'
             elif segment == 'B':
                 return 'Gares d\'intérêt régional'
-            elif segment == 'C':
+            else: 
                 return 'Gares d\'intérêt local'
-            else:
-                return 'Autre'
+            
 
         frequentation_gares['Segmentation DRG Nouveau'] = frequentation_gares['Segmentation DRG'].map(map_segmentation_drg)
         frequentation_gares['Taux de Croissance'] = (frequentation_gares['Total Voyageurs 2022'] - frequentation_gares['Total Voyageurs 2021']) / frequentation_gares['Total Voyageurs 2021'] * 100
@@ -207,11 +205,13 @@ def main():
         gares_departement = gares_augmentation_significative[gares_augmentation_significative['DEPARTEMEN'] == selected_departement]
         gares_departement = gares_departement.sort_values(by='Taux de Croissance', ascending=False)
 
+        result_df = gares_departement.groupby('Gare').first().reset_index()
+
         st.header("Augmentation significative du nombre de voyageurs dans le département : {}".format(selected_departement)) 
         st.subheader("Liste des gares (taux de croissance > 10%):")
-        st.write(gares_departement[['Gare', 'Taux de Croissance']])
+        st.write(result_df[['Gare', 'Taux de Croissance']])
 
-        fig = px.bar(gares_departement, x='Gare', y='Taux de Croissance', title='Taux de Croissance des Voyageurs par Gare')
+        fig = px.bar(result_df, x='Gare', y='Taux de Croissance', title='Taux de Croissance des Voyageurs par Gare')
         fig.update_layout(xaxis_title='Gare', yaxis_title='Taux de Croissance (%)')
 
         st.plotly_chart(fig)
