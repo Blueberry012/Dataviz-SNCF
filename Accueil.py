@@ -15,6 +15,14 @@ st.write("Notre application dédiée à la SNCF simplifie la prise de décision 
 
 st.write("Grâce à une analyse approfondie du flux ferroviaire, notre application identifie les points d'amélioration clés, permettant à la SNCF de prendre des décisions éclairées pour renforcer l'efficacité opérationnelle du réseau ferroviaire.")
 
+st.write("Nous allons répondre à ses questions :")
+
+st.write("1) Quelles sont les gares les plus fréquentés ?")
+
+st.write("2) Quelles aménagements faudrait-il faire dans les gares ?")
+
+st.write("3) Où faudrait-il améliorer le flux ferroviaire ?")
+
 st.divider()
 
 st.write("N'hésitez pas à explorer notre application pour trouver des pistes d'optimisation les infrastructures et améliorer l'expérience des voyageurs.")
