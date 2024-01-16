@@ -171,24 +171,6 @@ def main():
         )
 
         st.plotly_chart(fig)
-
-        
-        horaires_gares = pd.read_csv('data/horaires-des-gares.csv', sep=';', names=['UIC', 'Gare', 'Jour de la semaine', 'Horaire en jour férié', 'Horaire en jour normal'], skiprows=1)
-        horaires_gares['Jour de la semaine'] = horaires_gares['Jour de la semaine'].str.capitalize()
-        horaires_gares[['Heure début normal', 'Heure fin normal']] = horaires_gares['Horaire en jour normal'].str.split('-', expand=True)
-        horaire_frequency = horaires_gares.groupby(['Jour de la semaine', 'Heure début normal']).size().reset_index(name='Fréquence')
-
-        fig = px.bar(
-            horaire_frequency,
-            x='Heure début normal',
-            y='Fréquence',
-            color='Jour de la semaine',
-            title='Fréquence des Horaires en Fonction du Jour de la Semaine',
-            labels={'Heure début normal': 'Heure de Début Normal', 'Fréquence': 'Fréquence'},
-        )
-
-        st.plotly_chart(fig)
-
         
         ### PARTIE POUR LES FLUX ###
 
