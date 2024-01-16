@@ -37,7 +37,7 @@ def afficher_repartition_distances():
     st.write(data)
 
 def afficher_regularite_mensuelle_intercites():
-    st.header("Régularite mensuelle intercités")
+    st.header("Régularité mensuelle intercités")
     data = pd.read_csv('data/regularite-mensuelle-intercites.csv', sep=';')
     st.write(data)
 
