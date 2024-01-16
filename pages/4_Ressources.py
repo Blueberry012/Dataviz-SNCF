@@ -12,7 +12,7 @@ image = 'image/sncf.png'
 st.image(image, width=100, use_column_width=False, clamp=True)
 
 def afficher_frequentation_gares():
-    st.header("Frequentation des gares")
+    st.header("Fréquentation des gares")
     data_freq_gares = pd.read_csv('data/frequentation-gares.csv', sep=';')
     st.write(data_freq_gares)
 
@@ -27,22 +27,22 @@ def afficher_liste_gares():
     st.write(data_gares)
 
 def afficher_repartition_utilisation():
-    st.header("Repartition de l'utilisation des moyens d'acces")
+    st.header("Répartition de l'utilisation des moyens d'accès")
     data = pd.read_csv('data/repartition-des-moyens-dacces.csv', sep=';')
     st.write(data)
 
 def afficher_repartition_distances():
-    st.header("Repartition des distances d'acces a la gare")
+    st.header("Répartition des distances d'accàs à la gare")
     data = pd.read_csv('data/repartition-des-distances-dacces.csv',sep=';')
     st.write(data)
 
 def afficher_regularite_mensuelle_intercites():
-    st.header("regularite mensuelle intercites")
+    st.header("Régularite mensuelle intercités")
     data = pd.read_csv('data/regularite-mensuelle-intercites.csv', sep=';')
     st.write(data)
 
 def afficher_regularite_mensuelle_TGV():
-    st.header("regularite mensuelle TGV")
+    st.header("Régularité mensuelle TGV")
     data = pd.read_csv('data/regularite-mensuelle-tgv-aqst.csv', sep=';')
     st.write(data)
 
