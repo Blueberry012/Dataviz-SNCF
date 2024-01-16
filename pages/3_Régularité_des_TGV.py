@@ -34,6 +34,7 @@ def main():
         df2 = df2.sort_values(by='Année', ascending=False)
         df2 = df2.groupby(['Départ', 'Arrivée']).head(1)
         df2 = df2.dropna(subset=['Année'])
+        df2['Taux de régularité'] = round(df2['Taux de régularité'], 2)
 
         df = pd.merge(df2, df1, left_on='Départ', right_on='Gare', how='inner')
         center=[df1.Latitude.mean(), df1.Longitude.mean()]
@@ -80,8 +81,8 @@ def main():
         col5.metric("Régularité globale", formatted_value)
 
         for i,row in data3.iterrows():
-            content = f'Département: {str(row["DEPARTEMEN"])}<br>' f'Gare: {str(row["LIBELLE"])}<br>' f'Trains programmés: {str(row["Nombre de trains programmés"])}<br>' f'Trains annulés: {str(row["Nombre de trains annulés"])}<br>' f'Trains en retard: {str(row["Nombre de trains en retard"])}<br>' f'Régularité: {str(row["Taux de régularité"])}'
-            iframe = folium.IFrame(content, width=400, height=100)
+            content = f'Département: {str(row["DEPARTEMEN"])}<br>' f'Gare: {str(row["LIBELLE"])}<br>' f'Trains programmés: {str(row["Nombre de trains programmés"])}<br>' f'Trains annulés: {str(row["Nombre de trains annulés"])}<br>' f'Trains en retard: {str(row["Nombre de trains en retard"])}<br>' f'Régularité: {str(row["Taux de régularité"])}' f'%'
+            iframe = folium.IFrame(content, width=400, height=150)
             popup = folium.Popup(iframe, min_width=400, max_width=400)
             
             try:
@@ -111,8 +112,14 @@ def main():
         intercites_data['Amelioration'] = intercites_data['Nombre de trains en retard à l\'arrivée'] + intercites_data['Nombre de trains annulés']
         tgv_data['Amelioration'] = tgv_data['Nombre de trains en retard à l\'arrivée'] + tgv_data['Nombre de trains annulés']
 
-        gares_amelioration_intercites = intercites_data[intercites_data['Départ'].isin(gares_communes) & (intercites_data['Amelioration'] > 0)]
-        gares_amelioration_tgv = tgv_data[tgv_data['Gare de départ'].isin(gares_communes) & (tgv_data['Amelioration'] > 0)]
+        gares_amelioration_intercites = intercites_data.groupby(['Départ', 'Arrivée'])['Amelioration'].sum().reset_index()
+        gares_amelioration_tgv = tgv_data.groupby(['Gare de départ', 'Gare d\'arrivée'])['Amelioration'].sum().reset_index()
+
+        gares_amelioration_intercites = gares_amelioration_intercites[gares_amelioration_intercites['Amelioration'] > 0]
+        gares_amelioration_tgv = gares_amelioration_tgv[gares_amelioration_tgv['Amelioration'] > 0]
+
+        gares_amelioration_intercites['Amelioration'] = gares_amelioration_intercites['Amelioration'].astype(str).str.replace(',', '')
+        gares_amelioration_tgv['Amelioration'] = gares_amelioration_tgv['Amelioration'].astype(str).str.replace(',', '')
 
         st.header("Gares à améliorer pour réduire les retards et annulations")
         st.write("Gares à améliorer pour le service Intercités :")
