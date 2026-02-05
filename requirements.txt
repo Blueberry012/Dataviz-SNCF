@@ -1,6 +1,32 @@
-pandas
+# Streamlit et compatibilité
 streamlit==1.19.0
+streamlit-folium==0.26.1
+
+# Data
+pandas==1.5.3
+numpy==1.25.2
+
+# Visualisation
 altair==4.2.2
-folium
-streamlit_folium
-plotly.express
+plotly==6.5.2
+plotly-express==0.4.1
+matplotlib==3.7.2
+seaborn==0.13.2
+folium==0.20.0
+branca==0.8.2
+
+# Analyse et statistique
+scipy==1.10.1
+statsmodels==0.14.6
+patsy==1.0.2
+
+# Utilitaires
+requests==2.32.5
+python-dateutil==2.9.0
+tzlocal==5.3.1
+validators==0.35.0
+rich==14.3.2
+
+# Compatibilité git
+gitpython==3.1.46
+smmap==5.0.2
