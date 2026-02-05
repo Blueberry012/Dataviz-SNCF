@@ -4,7 +4,7 @@ streamlit-folium==0.26.1
 
 # Data
 pandas==2.3.3
-numpy==1.27.6
+numpy==1.26.4
 
 # Visualisation
 matplotlib==3.8.0
