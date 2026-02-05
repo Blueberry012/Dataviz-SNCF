@@ -9,7 +9,7 @@ st.title("Bases de données")
 image = 'image/sncf.png'
 
 # Affichage de l'image avec une taille personnalisée et placement dans le coin supérieur droit
-st.image(image, width=100, width=False, clamp=True)
+st.image(image, width=100, clamp=True)
 
 def afficher_frequentation_gares():
     st.header("Fréquentation des gares")
