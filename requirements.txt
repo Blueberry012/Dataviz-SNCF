@@ -1,10 +1,10 @@
-# Streamlit et compatibilité
+# Streamlit
 streamlit==1.19.0
 streamlit-folium==0.26.1
 
 # Data
 pandas==1.5.3
-numpy==1.25.2
+numpy==1.24.4
 
 # Visualisation
 altair==4.2.2
@@ -26,7 +26,3 @@ python-dateutil==2.9.0
 tzlocal==5.3.1
 validators==0.35.0
 rich==14.3.2
-
-# Compatibilité git
-gitpython==3.1.46
-smmap==5.0.2
