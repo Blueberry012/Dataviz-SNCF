@@ -26,6 +26,6 @@ st.write("2) Quelles aménagements faudrait-il faire dans les gares ?")
 
 st.write("3) Où faudrait-il améliorer le flux ferroviaire ?")
 
-st.divider()
+
 
 st.write("N'hésitez pas à explorer notre application pour trouver des pistes d'optimisation les infrastructures et améliorer l'expérience des voyageurs.")
