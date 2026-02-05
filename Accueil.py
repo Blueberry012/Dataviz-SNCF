@@ -1,4 +1,7 @@
+import sys
 import streamlit as st
+
+st.write("Python version:", sys.version)
 
 CURRENT_THEME = "blue"
 IS_DARK_THEME = True
