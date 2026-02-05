@@ -5,7 +5,7 @@ IS_DARK_THEME = True
 
 st.title('Application SNCF')
 
-st.image("image/sncf.png", width=100, use_column_width=False, clamp=True)
+st.image("image/sncf.png", width=100, width=False, clamp=True)
 
 st.header("Comment inciter les utilisateurs à favoriser les moyens de transport ?")
 
